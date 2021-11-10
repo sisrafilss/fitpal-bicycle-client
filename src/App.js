@@ -7,29 +7,24 @@ import Login from './pages/Login/Login/Login';
 
 function App() {
   return (
-    <div className="App">
-
-      <AuthProvider>
-        <Router>
-          <Switch>
-            <Route exact path="/">
-              <Home />
-            </Route>
-            <Route path="/home">
-              <Home />
-            </Route>
-            <Route path="/login">
-              <Login />
-            </Route>
-            <Route path="*">
-              <NotFoundPage />
-            </Route>
-          </Switch>
-        </Router>
-      </AuthProvider>
-
-
-    </div>
+    <AuthProvider>
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            <Home />
+          </Route>
+          <Route path="/home">
+            <Home />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="*">
+            <NotFoundPage />
+          </Route>
+        </Switch>
+      </Router>
+    </AuthProvider>
   );
 }
 

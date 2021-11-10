@@ -1,0 +1,28 @@
+.fitpal-carousel-item {
+  height: 35rem;
+  background: #000;
+  color: rgba(255, 255, 255, 0.904);
+  position: relative;
+}
+
+.slider-container {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 50%;
+  padding-bottom: 5%;
+  text-align: center;
+}
+
+.overlay-image {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 0.5;
+}
