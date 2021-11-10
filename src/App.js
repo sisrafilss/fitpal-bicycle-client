@@ -1,8 +1,9 @@
 import './App.css';
-import { Typography } from '@mui/material';
-import Login from './pages/Login/Login/Login';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import AuthProvider from './contexts/AuthProvider/AuthProvider';
+import Home from './pages/Home/Home/Home';
+import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
+import Login from './pages/Login/Login/Login';
 
 function App() {
   return (
@@ -12,10 +13,16 @@ function App() {
         <Router>
           <Switch>
             <Route exact path="/">
-              <Typography variant="h1">
-                Welcome to <span style={{ color: "red" }}>FitPal Bicycle</span>
-              </Typography>
+              <Home />
+            </Route>
+            <Route path="/home">
+              <Home />
+            </Route>
+            <Route path="/login">
               <Login />
+            </Route>
+            <Route path="*">
+              <NotFoundPage />
             </Route>
           </Switch>
         </Router>

@@ -1,0 +1,11 @@
+.nav-item {
+  /* margin-top: 5px !important; */
+  margin-right: 15px;
+}
+
+.fitpal-nav-item a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  text-transform: uppercase;
+}
