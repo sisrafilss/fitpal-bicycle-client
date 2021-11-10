@@ -1,3 +1,3 @@
-# FitPal Bicycle
+# [FitPal Bicycle](https://fitpal-bicycle.web.app/)
 
-Welcome to FitPal Bicycle
+Click here to visit website [https://fitpal-bicycle.web.app/](https://fitpal-bicycle.web.app/)
