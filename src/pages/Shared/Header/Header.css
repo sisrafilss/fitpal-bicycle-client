@@ -9,3 +9,7 @@
   font-weight: 500;
   text-transform: uppercase;
 }
+
+.fitpal-nav-item:hover a {
+  color: rgba(255, 255, 255, 0.877);
+}

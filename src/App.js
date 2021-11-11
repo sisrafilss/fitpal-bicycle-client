@@ -4,6 +4,7 @@ import AuthProvider from './contexts/AuthProvider/AuthProvider';
 import Home from './pages/Home/Home/Home';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Login from './pages/Login/Login/Login';
+import AllProducts from './pages/AllProducts/AllProducts';
 
 function App() {
   return (
@@ -15,6 +16,9 @@ function App() {
           </Route>
           <Route path="/home">
             <Home />
+          </Route>
+          <Route path="/all-products">
+            <AllProducts />
           </Route>
           <Route path="/login">
             <Login />

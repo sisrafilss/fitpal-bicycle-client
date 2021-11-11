@@ -12,14 +12,15 @@ const Header = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li className="nav-item  fitpal-nav-item">
+                        <li className="nav-item  fitpal-nav-item me-5">
                             <Link to="/home">Home</Link>
                         </li>
-                        <li className="nav-item fitpal-nav-item">
+                        <li className="nav-item  fitpal-nav-item me-5">
+                            <Link to="/all-products">All Products</Link>
+                        </li>
+                        <li className="nav-item fitpal-nav-item me-5">
                             <Link to="/login">Login</Link>
                         </li>
-
-
                     </ul>
 
                 </div>

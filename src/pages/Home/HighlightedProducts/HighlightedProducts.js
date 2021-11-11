@@ -66,7 +66,7 @@ const HighlightedProducts = () => {
                     }
                 </div>
                 <div className="my-5 d-grid">
-                    <Link className="btn btn-load-more" to="/services">All Products</Link>
+                    <Link className="btn btn-load-more" to="/all-products">All Products</Link>
                 </div>
 
 

@@ -2,7 +2,6 @@ import React from 'react';
 import AboutCompanyInShort from '../AboutCompanyInShort/AboutCompanyInShort';
 import ContactForm from '../ContactForm/ContactForm';
 import HelpfulLinks from '../HelpfulLInks/HelpfulLinks';
-import OpeningHours from '../OpeningOurs/OpeningHours';
 import './Footer.css'
 
 const Footer = () => {
