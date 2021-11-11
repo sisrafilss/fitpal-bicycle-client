@@ -88,6 +88,7 @@ const AllProducts = () => {
     return (
         <div>
             <Header />
+
             <div style={{ marginTop: '-60px' }}>
                 <SectionHead sectionHead={sectionHead} />
                 <div className="container">

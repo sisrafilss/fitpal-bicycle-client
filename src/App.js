@@ -5,6 +5,8 @@ import Home from './pages/Home/Home/Home';
 import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
 import Login from './pages/Login/Login/Login';
 import AllProducts from './pages/AllProducts/AllProducts';
+import PrivatRoute from './pages/Login/PrivatRoute/PrivatRoute';
+import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 
 function App() {
   return (
@@ -23,6 +25,9 @@ function App() {
           <Route path="/login">
             <Login />
           </Route>
+          <PrivatRoute path="/place-order/:productId">
+            <PlaceOrder />
+          </PrivatRoute>
           <Route path="*">
             <NotFoundPage />
           </Route>
