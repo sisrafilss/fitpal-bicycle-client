@@ -31,10 +31,11 @@ const Reviews = () => {
         subtitle: 'Take a loot, what our customers are saying about our products'
     }
     return (
-        <div>
+        <div style={{ marginBottom: '80px' }}>
             <SectionHead sectionHead={sectionHead} />
             <div className="container mb-5">
                 <div className="row g-4">
+                    {/* Add Slider for each SingleReview if have enough time. */}
                     {
                         feedbacks.map(feedback => <SingleReview key={feedback.id} feedback={feedback} />)
                     }

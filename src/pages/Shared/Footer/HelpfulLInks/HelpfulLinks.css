@@ -1,0 +1,14 @@
+.helpful-links li {
+  color: #ccc;
+}
+
+.helpful-links li a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s all ease;
+}
+
+.helpful-links li:hover a {
+  color: #fff;
+  text-decoration: underline;
+}

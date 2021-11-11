@@ -13,7 +13,7 @@ const SingleProduct = (props) => {
                         <h5 className="card-title"> {title} </h5>
                         <p className="card-text card-description"> {description.slice(0, 150)} </p>
                         <p> Price: ${price} </p>
-                        <Link to={`/service`} className="btn btn-outline read-mroe-btn fw-bold">Details</Link>
+                        <Link to={`/service`} className="btn btn-outline read-mroe-btn fw-bold">Buy Now</Link>
                     </div>
 
                 </div>

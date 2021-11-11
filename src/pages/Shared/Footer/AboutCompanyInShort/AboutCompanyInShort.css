@@ -1,0 +1,11 @@
+.copany-contact {
+  color: #fff;
+  transition: 0.3s all ease;
+}
+.copany-contact:hover {
+  color: rgb(41, 134, 226);
+}
+
+.footer-icon {
+  color: #ffffff;
+}

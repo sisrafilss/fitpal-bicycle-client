@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .btn-load-more {
   display: block !important;
   background-color: #e3e7e9;
