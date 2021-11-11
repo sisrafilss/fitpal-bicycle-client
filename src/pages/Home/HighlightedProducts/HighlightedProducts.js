@@ -60,9 +60,9 @@ const HighlightedProducts = () => {
             <SectionHead sectionHead={sectionHead} />
 
             <div className="container">
-                <div class="row row-cols-1 row-cols-md-3 g-4">
+                <div className="row row-cols-1 row-cols-md-3 g-4">
                     {
-                        products.map(product => <SingleProduct product={product} />)
+                        products.map(product => <SingleProduct key={product.id} product={product} />)
                     }
                 </div>
                 <div className="my-5 d-grid">

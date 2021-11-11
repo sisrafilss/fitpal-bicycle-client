@@ -6,12 +6,12 @@ const SingleProduct = (props) => {
     const { title, description, img, price } = props.product;
     return (
         <div>
-            <div class="col">
-                <div class="card shadow border-0">
-                    <img src={img} class="card-img-top card-img" alt="..." />
-                    <div class="card-body">
-                        <h5 class="card-title"> {title} </h5>
-                        <p class="card-text card-description"> {description.slice(0, 150)} </p>
+            <div className="col">
+                <div className="card shadow border-0">
+                    <img src={img} className="card-img-top card-img" alt="..." />
+                    <div className="card-body">
+                        <h5 className="card-title"> {title} </h5>
+                        <p className="card-text card-description"> {description.slice(0, 150)} </p>
                         <p> Price: ${price} </p>
                         <Link to={`/service`} className="btn btn-outline read-mroe-btn fw-bold">Details</Link>
                     </div>
