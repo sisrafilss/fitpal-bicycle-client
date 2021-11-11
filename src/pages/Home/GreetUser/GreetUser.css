@@ -1,0 +1,14 @@
+.greeting-container {
+  margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.card-description {
+  color: #777;
+}
+
+@media only screen and (max-width: 765px) {
+  .single-item {
+    margin-bottom: 35px !important;
+  }
+}
