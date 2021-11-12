@@ -1,0 +1,36 @@
+/* .orders-container {
+  margin-right: 20%;
+  margin-left: 20%;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  color: #fff;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.orders-container h1 {
+  color: #000;
+  text-align: center;
+}
+
+.hidden {
+  display: none;
+}
+.block {
+  display: block;
+}
+
+@media only screen and (min-width: 521px) and (max-width: 768px) {
+  .orders-container {
+    margin-right: 20%;
+    margin-left: 20%;
+  }
+}
+
+@media only screen and (max-width: 520px) {
+  .orders-container {
+    margin-right: 10%;
+    margin-left: 10%;
+  }
+}
+ */
