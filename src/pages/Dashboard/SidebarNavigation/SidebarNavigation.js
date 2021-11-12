@@ -1,9 +1,12 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useRouteMatch } from 'react-router-dom';
 import './SidebarNavigation.css'
 import logo from '../../../images/logo.png'
 
 const SidebarNavigation = () => {
+
+    let { url } = useRouteMatch();
+
     return (
         <div>
             <div className="logo-section">
@@ -13,11 +16,10 @@ const SidebarNavigation = () => {
                 </Link>
             </div>
             <div class="sidenav">
-                <Link to="/user-dashboard">Dashboard</Link>
-                <Link>My Orders</Link>
-                <Link>Payment</Link>
-                <Link>Review</Link>
-                <Link>Log Out</Link>
+                <Link to={`${url}/my-orders`}>My Orders</Link>
+                <Link to={`${url}/payment`}>Payment</Link>
+                <Link to={`${url}/review`}>Review</Link>
+                <Link to={`${url}/logout`}>Log Out</Link>
 
             </div>
         </div>
