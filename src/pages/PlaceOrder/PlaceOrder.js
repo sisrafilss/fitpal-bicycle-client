@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import Footer from '../Shared/Footer/Footer/Footer';
 import Header from '../Shared/Header/Header';
@@ -85,12 +85,17 @@ const PlaceOrder = () => {
     const { user } = useAuth();
     const { productId } = useParams();
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
-    const onSubmit = data => console.log(data);
 
     const product = products.find(pd => pd.id == productId);
     const { title, description, img, price } = product;
 
+    const { register, handleSubmit, formState: { errors } } = useForm();
+    const onSubmit = data => {
+        console.log(data);
+        if (data) {
+            console.log(data);
+        }
+    };
 
     return (
         <div>
@@ -185,6 +190,8 @@ const PlaceOrder = () => {
                         </div>
 
                         <input
+                            data-bs-toggle="modal"
+                            data-bs-target="#exampleModal"
                             type="submit"
                             className="btn btn-primary fw-bold"
                             value="Place Order"
@@ -192,7 +199,21 @@ const PlaceOrder = () => {
                     </form>
                 </div>
             </div>
+            {/* Order Confirmation Modal */}
+            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div className="modal-dialog ">
+                    <div className="modal-content">
+                        <div className="modal-header">
+                            <h4 className="modal-title text-success" id="exampleModalLabel">Order Success</h4>
+                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div className="modal-body">
+                            <p className="lead">You have Successfully Placed the Order! Please check My Order Page to check all of your orders and Order Status.</p>
+                        </div>
 
+                    </div>
+                </div>
+            </div>
             <Footer />
         </div>
     );
