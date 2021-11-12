@@ -2,7 +2,10 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import Footer from '../Shared/Footer/Footer/Footer';
 import Header from '../Shared/Header/Header';
-import bicycle from '../../images/products/bicycle-1.jpg'
+import bicycle from '../../images/products/bicycle-1.jpg';
+import { useForm } from "react-hook-form";
+import useAuth from '../../hooks/useAuth';
+import './PlaceOrder.css'
 
 const products = [
     {
@@ -79,7 +82,11 @@ const products = [
 
 const PlaceOrder = () => {
 
+    const { user } = useAuth();
     const { productId } = useParams();
+
+    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const onSubmit = data => console.log(data);
 
     const product = products.find(pd => pd.id == productId);
     const { title, description, img, price } = product;
@@ -89,21 +96,103 @@ const PlaceOrder = () => {
         <div>
             <Header />
             <div className="container my-5">
-                <div class="card mb-3">
-                    <div class="row">
-                        <div class="col-md-6 col-sm-12">
-                            <img src={img} class="img-fluid rounded-start w-100" alt="..." />
+                <div className="card mb-3">
+                    <div className="row">
+                        <div className="col-md-6 col-sm-12">
+                            <img src={img} className="img-fluid rounded-start w-100" alt="..." />
                         </div>
-                        <div class="col-md-6 col-sm-12">
-                            <div class="card-body ps-4">
-                                <h4 class="h1 text-primary"> {title} </h4>
-                                <p class="card-text"> {description} </p>
-                                <p class="card-text h2">Price: ${price} </p>
+                        <div className="col-md-6 col-sm-12">
+                            <div className="card-body ps-4">
+                                <h4 className="h1 text-primary"> {title} </h4>
+                                <p className="card-text"> {description} </p>
+                                <p className="card-text h2">Price: ${price} </p>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+            <div>
+                <div className="form-container">
+                    <div className="mb-4">
+                        <h2>Please Confirm the Detail and Place an Order</h2>
+                    </div>
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <div className="mb-3">
+                            <label className="form-label">Full Name</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Full Name"
+                                defaultValue={user?.displayName}
+                                {...register("name", { required: true })}
+                            />
+                            {errors.name && (
+                                <span className="text-danger">This field is required</span>
+                            )}
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">Email address</label>
+                            <input
+                                type="email"
+                                className="form-control"
+                                placeholder="Email"
+                                defaultValue={user.email}
+                                {...register("email", { required: true })}
+                            />
+                            {errors.email && (
+                                <span className="text-danger">This field is required</span>
+                            )}
+                        </div>
+                        <div className="mb-3">
+                            <label className="form-label">Full Address</label>
+                            <textarea
+                                className="form-control"
+                                rows="3"
+                                placeholder="Enter Full Address"
+                                {...register("address", { required: true })}
+                            ></textarea>
+                            {errors.address && (
+                                <span className="text-danger">This field is required</span>
+                            )}
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">City</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="City name"
+                                {...register("city", { required: true })}
+                            />
+                            {errors.city && (
+                                <span className="text-danger">This field is required</span>
+                            )}
+                        </div>
+
+                        <div className="mb-3">
+                            <label className="form-label">Phone</label>
+                            <input
+                                type="text"
+                                className="form-control"
+                                placeholder="Phone number"
+                                {...register("phone", { required: true })}
+                            />
+                            {errors.phone && (
+                                <span className="text-danger">This field is required</span>
+                            )}
+                        </div>
+
+                        <input
+                            type="submit"
+                            className="btn btn-primary fw-bold"
+                            value="Place Order"
+                        />
+                    </form>
+                </div>
+            </div>
+
             <Footer />
         </div>
     );
