@@ -2,10 +2,12 @@ import React from 'react';
 import { Link, useRouteMatch } from 'react-router-dom';
 import './SidebarNavigation.css'
 import logo from '../../../images/logo.png'
+import useAuth from '../../../hooks/useAuth';
 
 const SidebarNavigation = () => {
 
     let { url } = useRouteMatch();
+    const { user, admin } = useAuth();
 
     return (
         <div>
@@ -19,8 +21,15 @@ const SidebarNavigation = () => {
                 <Link to={`${url}/my-orders`}>My Orders</Link>
                 <Link to={`${url}/payment`}>Payment</Link>
                 <Link to={`${url}/review`}>Review</Link>
+                {
+                    admin && <div>
+                        <Link to={`${url}/manage-all-orders`}>All Orders</Link>
+                        <Link to={`${url}/add-product`}>Add Product</Link>
+                        <Link to={`${url}/make-admin`}>Make Admin</Link>
+                        <Link to={`${url}/manage-products`}>Manage Products</Link>
+                    </div>
+                }
                 <Link to={`${url}/logout`}>Log Out</Link>
-
             </div>
         </div>
     );

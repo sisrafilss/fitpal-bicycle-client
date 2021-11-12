@@ -9,6 +9,8 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [authError, setAuthError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
+    const [admin, setAdmin] = useState(true); // Setting true at inital state only for testing purpose. It will change after connecting database.
+
     const auth = getAuth();
 
     // Register new user using email and password
@@ -106,6 +108,7 @@ const useFirebase = () => {
         user,
         isLoading,
         authError,
+        admin,
         signInWithGoogle,
         registerUser,
         loginUser,
