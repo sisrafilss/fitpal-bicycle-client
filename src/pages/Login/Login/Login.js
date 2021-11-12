@@ -71,7 +71,15 @@ const Login = () => {
                         className="btn btn-primary fw-bold"
                         value="Login"
                     />
+
+
                 </form>
+                <div className="mt-4 d-grid">
+                    <button onClick={handleGoogleSignIn} className="btn btn-success">
+                        <i class="fab fa-google text-light"></i>  &nbsp;  &nbsp;
+                        Continue with Google
+                    </button>
+                </div>
             </div>
             <div className="border mt-4" style={{ backgroundColor: '#f6f8fa', padding: '10px 82px' }}>
                 <span>New to FitPal? <Link to="/register">Register</Link> </span>
