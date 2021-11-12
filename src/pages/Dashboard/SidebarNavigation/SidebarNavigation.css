@@ -4,6 +4,7 @@
   position: absolute;
   top: 20px;
   left: 30px;
+  position: fixed; /* Stay in place */
 }
 
 /* The side navigation menu */
