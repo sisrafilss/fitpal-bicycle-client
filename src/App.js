@@ -7,6 +7,7 @@ import Login from './pages/Login/Login/Login';
 import AllProducts from './pages/AllProducts/AllProducts';
 import PrivatRoute from './pages/Login/PrivatRoute/PrivatRoute';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
+import Register from './pages/Login/Register/Register';
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
           </Route>
           <Route path="/login">
             <Login />
+          </Route>
+          <Route path="/register">
+            <Register />
           </Route>
           <PrivatRoute path="/place-order/:productId">
             <PlaceOrder />

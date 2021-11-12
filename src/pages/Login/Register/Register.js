@@ -1,40 +1,55 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
-import { useHistory, useLocation } from 'react-router';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
-import './Login.css'
 import logo from '../../../images/logo.png';
-const Login = () => {
 
-    const { user, signInWithGoogle } = useAuth();
-    const location = useLocation();
-    const history = useHistory();
+const Register = () => {
 
-    const handleGoogleSignIn = () => {
-        signInWithGoogle(location, history);
-    }
+    const { user } = useAuth();
 
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data);
         if (data) {
             console.log(data);
         }
     };
 
     return (
-        <div className="login-container" >
+        <div className="login-container my-2" >
             <div className="mb-2">
                 <img src={logo} style={{ width: '60px', height: '60px' }} alt="" />
             </div>
             <div>
-                <h2 className="h3 mb-4">Login to FitPal</h2>
+                <h2 className="h3 mb-4">Please Register</h2>
             </div>
             <div className="login-form border rounded">
 
                 <form onSubmit={handleSubmit(onSubmit)}>
 
+                    <div className="mb-3">
+                        <label className="form-label">First Name</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            {...register("name", { required: true })}
+                        />
+                        {errors.firstName && (
+                            <span className="text-danger">This field is required</span>
+                        )}
+                    </div>
+
+                    <div className="mb-3">
+                        <label className="form-label">Last Name</label>
+                        <input
+                            type="text"
+                            className="form-control"
+                            {...register("lastName", { required: true })}
+                        />
+                        {errors.lastName && (
+                            <span className="text-danger">This field is required</span>
+                        )}
+                    </div>
 
                     <div className="mb-3">
                         <label className="form-label">Email address</label>
@@ -66,18 +81,31 @@ const Login = () => {
                         )}
                     </div>
 
+                    <div className="mb-3">
+                        <label className="form-label">Confirm Password</label>
+                        <input
+                            type="password"
+                            className="form-control"
+
+                            {...register("password2", { required: true })}
+                        />
+                        {errors.password2 && (
+                            <span className="text-warning">This field is required</span>
+                        )}
+                    </div>
+
                     <input
                         type="submit"
                         className="btn btn-primary fw-bold"
-                        value="Login"
+                        value="Register"
                     />
                 </form>
             </div>
-            <div className="border mt-4" style={{ backgroundColor: '#f6f8fa', padding: '10px 82px' }}>
-                <span>New to FitPal? <Link to="/register">Register</Link> </span>
+            <div className="border mt-4" style={{ backgroundColor: '#f6f8fa', padding: '10px 74px' }}>
+                <span>Already Registered? <Link to="/login">Login</Link> </span>
             </div>
         </div>
     );
 };
 
-export default Login;
+export default Register;
