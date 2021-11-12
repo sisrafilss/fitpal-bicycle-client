@@ -2,10 +2,8 @@ import React from 'react';
 import Footer from '../Shared/Footer/Footer/Footer';
 import Header from '../Shared/Header/Header';
 import SectionHead from '../Shared/SectionHead/SectionHead';
-
 import bicycle from '../../images/products/bicycle-1.jpg';
 import SingleProduct from '../Shared/SingleProduct/SingleProduct';
-import { Link } from 'react-router-dom';
 
 const products = [
     {

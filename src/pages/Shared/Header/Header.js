@@ -20,6 +20,13 @@ const Header = () => {
                         <li className="nav-item  fitpal-nav-item me-4">
                             <Link to="/all-products">All Products</Link>
                         </li>
+
+                        {
+                            user?.email && <li className="nav-item  fitpal-nav-item me-4">
+                                <Link to="/dashboard">Dashboard</Link>
+                            </li>
+                        }
+
                         {
                             user?.email ? <button onClick={logOut} style={{ outline: 0, border: 0, borderRadius: '3px' }}>
                                 LogOut

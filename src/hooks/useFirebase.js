@@ -91,7 +91,7 @@ const useFirebase = () => {
 
             }
         });
-    }, []);
+    }, [auth]);
 
     // Log Our
     const logOut = () => {

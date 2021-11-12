@@ -8,6 +8,7 @@ import AllProducts from './pages/AllProducts/AllProducts';
 import PrivatRoute from './pages/Login/PrivatRoute/PrivatRoute';
 import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Register from './pages/Login/Register/Register';
+import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
 
 function App() {
 
@@ -32,6 +33,9 @@ function App() {
           </Route>
           <PrivatRoute path="/place-order/:productId">
             <PlaceOrder />
+          </PrivatRoute>
+          <PrivatRoute path="/dashboard">
+            <Dashboard />
           </PrivatRoute>
           <Route path="*">
             <NotFoundPage />
