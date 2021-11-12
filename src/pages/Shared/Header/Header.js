@@ -14,21 +14,32 @@ const Header = () => {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li className="nav-item  fitpal-nav-item me-5">
+                        <li className="nav-item  fitpal-nav-item me-4">
                             <Link to="/home">Home</Link>
                         </li>
-                        <li className="nav-item  fitpal-nav-item me-5">
+                        <li className="nav-item  fitpal-nav-item me-4">
                             <Link to="/all-products">All Products</Link>
                         </li>
                         {
-                            user?.email ? <button onClick={logOut} className="btn btn-primary">
+                            user?.email ? <button onClick={logOut} style={{ outline: 0, border: 0, borderRadius: '3px' }}>
                                 LogOut
-                            </button> : <li className="nav-item fitpal-nav-item me-5">
+                            </button> : <li className="nav-item fitpal-nav-item me-4">
                                 <Link to="/login">Login</Link>
                             </li>
                         }
 
+
                     </ul>
+                    {user.email && (
+                        <div className="mx-3">
+                            <img
+                                style={{ width: "40px", height: "40px", borderRadius: "50%" }}
+                                src={user?.photoURL}
+                                alt=""
+                            />
+                            <span className="text-light"> {user?.displayName} </span>
+                        </div>
+                    )}
 
                 </div>
             </div>

@@ -10,6 +10,7 @@ import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
 import Register from './pages/Login/Register/Register';
 
 function App() {
+
   return (
     <AuthProvider>
       <Router>

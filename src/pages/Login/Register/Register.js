@@ -1,17 +1,29 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
 import logo from '../../../images/logo.png';
+import { useHistory } from 'react-router';
+import LoadingSpinner from '../../Shared/LoadingSpinner/LoadingSpinner';
 
 const Register = () => {
 
-    const { user } = useAuth();
+    const { user, registerUser, authError, setAuthError } = useAuth();
+    const history = useHistory();
 
+    // React hook form
     const { register, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        if (data) {
-            console.log(data);
+        console.log(data);
+        // Check password matching
+        if (data.password === data.password2) {
+            const fullName = `${data.firstName} ${data.lastName}`;
+
+            registerUser(fullName, data.email, data.password, history);
+
+        }
+        else if (data.password !== data.password2) {
+            setAuthError('Password Did not Matched');
         }
     };
 
@@ -32,7 +44,7 @@ const Register = () => {
                         <input
                             type="text"
                             className="form-control"
-                            {...register("name", { required: true })}
+                            {...register("firstName", { required: true })}
                         />
                         {errors.firstName && (
                             <span className="text-danger">This field is required</span>
@@ -100,6 +112,11 @@ const Register = () => {
                         value="Register"
                     />
                 </form>
+                {
+                    authError && <div class="alert alert-danger mt-4" role="alert">
+                        {authError}
+                    </div>
+                }
             </div>
             <div className="border mt-4" style={{ backgroundColor: '#f6f8fa', padding: '10px 74px' }}>
                 <span>Already Registered? <Link to="/login">Login</Link> </span>
