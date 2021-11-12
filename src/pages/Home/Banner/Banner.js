@@ -3,6 +3,7 @@ import './Banner.css';
 import slide1 from '../../../images/slide-1.jpg';
 import slide2 from '../../../images/slide-2.jpg';
 import slide3 from '../../../images/slide-3.jpg';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
     return (
@@ -19,9 +20,7 @@ const Banner = () => {
                     <div className="container slider-container">
                         <h1>Use Bicycle and Stay Fit</h1>
                         <p className="lead">Cycling improves overall function in your lower body and strengthens your leg muscles without overstressing them.</p>
-                        <a href="#" className="btn btn-primary btn-lg">
-                            See All Offer
-                        </a>
+                        <Link className="btn btn-primary btn-lg" to="/all-products">See All Products</Link>
                     </div>
                 </div>
                 <div className="carousel-item  fitpal-carousel-item">
@@ -29,9 +28,7 @@ const Banner = () => {
                     <div className="container slider-container">
                         <h1>Use Bicycle and Stay Fit</h1>
                         <p className="lead">Cycling improves overall function in your lower body and strengthens your leg muscles without overstressing them.</p>
-                        <a href="#" className="btn btn-primary btn-lg">
-                            See All Offer
-                        </a>
+                        <Link className="btn btn-primary btn-lg" to="/all-products">See All Products</Link>
                     </div>
                 </div>
                 <div className="carousel-item  fitpal-carousel-item">
@@ -39,9 +36,7 @@ const Banner = () => {
                     <div className="container slider-container">
                         <h1>Use Bicycle and Stay Fit</h1>
                         <p className="lead">Cycling improves overall function in your lower body and strengthens your leg muscles without overstressing them.</p>
-                        <a href="#" className="btn btn-primary btn-lg">
-                            See All Offer
-                        </a>
+                        <Link className="btn btn-primary btn-lg" to="/all-products">See All Products</Link>
                     </div>
                 </div>
 

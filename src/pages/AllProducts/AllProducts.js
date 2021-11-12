@@ -1,88 +1,30 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect } from 'react';
+import { useState } from 'react/cjs/react.development';
 import Footer from '../Shared/Footer/Footer/Footer';
 import Header from '../Shared/Header/Header';
 import SectionHead from '../Shared/SectionHead/SectionHead';
-import bicycle from '../../images/products/bicycle-1.jpg';
 import SingleProduct from '../Shared/SingleProduct/SingleProduct';
 
-const products = [
-    {
-        id: 1,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 2,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 3,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 4,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 5,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 6,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 7,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 8,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 9,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 10,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-]
-
 const AllProducts = () => {
+
+    const [products, setProducts] = useState([]);
+
+    // Load Highlighted products
+    useEffect(() => {
+        axios.get('http://localhost:5000/products')
+            .then(res => {
+                setProducts(res.data);
+            })
+    }, [])
+
+    // Section Head props object
     const sectionHead = {
         title: 'Choose Your Favorite Bike',
         subtitle: 'Choose your favorite bicycle from our Variety of Bikes Collection'
     }
+
+
     return (
         <div>
             <Header />

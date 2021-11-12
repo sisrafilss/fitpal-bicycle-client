@@ -3,12 +3,13 @@ import './SingleReview.css'
 import ReactStars from "react-rating-stars-component";
 
 const SingleReview = (props) => {
-    const { img, feedback, rating } = props.feedback;
+    const { name, img, feedback, rating } = props.review;
     return (
         <div className="col-md-4 col-sm-12">
             <div className="card border-1 shadow-sm text-justify">
                 <img src={img} className="review-img mt-3" alt="..." />
-                <div className="my-2 mx-auto mt-4">
+                <h5 className="mt-4 text-dark text-center"> {name} </h5>
+                <div className="mt-0 mx-auto">
                     {/* <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>
                     <i className="fas fa-star"></i>
