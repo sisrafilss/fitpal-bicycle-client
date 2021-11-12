@@ -15,7 +15,7 @@ const SidebarNavigation = () => {
                     <span className="ms-2 h3 d-inline-block" style={{ color: '#f1f1f1' }}>FitPal</span>
                 </Link>
             </div>
-            <div class="sidenav">
+            <div className="sidenav">
                 <Link to={`${url}/my-orders`}>My Orders</Link>
                 <Link to={`${url}/payment`}>Payment</Link>
                 <Link to={`${url}/review`}>Review</Link>

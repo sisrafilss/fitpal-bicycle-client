@@ -112,7 +112,7 @@ const Register = () => {
                     />
                 </form>
                 {
-                    authError && <div class="alert alert-danger mt-4" role="alert">
+                    authError && <div className="alert alert-danger mt-4" role="alert">
                         {authError}
                     </div>
                 }

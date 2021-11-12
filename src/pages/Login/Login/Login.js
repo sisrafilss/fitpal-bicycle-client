@@ -64,13 +64,13 @@ const Login = () => {
                 </form>
                 <div className="mt-4 d-grid">
                     <button onClick={handleGoogleSignIn} className="btn btn-success">
-                        <i class="fab fa-google text-light"></i>  &nbsp;  &nbsp;
+                        <i className="fab fa-google text-light"></i>  &nbsp;  &nbsp;
                         Continue with Google
                     </button>
                 </div>
 
                 {
-                    authError && <div class="alert alert-danger mt-4" role="alert">
+                    authError && <div className="alert alert-danger mt-4" role="alert">
                         {authError}
                     </div>
                 }
