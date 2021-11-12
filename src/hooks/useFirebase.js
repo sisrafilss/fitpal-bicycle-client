@@ -113,7 +113,8 @@ const useFirebase = () => {
         registerUser,
         loginUser,
         setAuthError,
-        logOut
+        logOut,
+        setAdmin
     }
 
 }

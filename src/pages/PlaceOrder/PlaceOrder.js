@@ -86,7 +86,7 @@ const PlaceOrder = () => {
     const { productId } = useParams();
 
 
-    const product = products.find(pd => pd.id == productId);
+    const product = products.find(pd => pd.id === parseInt(productId));
     const { title, description, img, price } = product;
 
     const { register, handleSubmit, formState: { errors } } = useForm();

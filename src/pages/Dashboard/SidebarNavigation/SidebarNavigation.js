@@ -7,7 +7,7 @@ import useAuth from '../../../hooks/useAuth';
 const SidebarNavigation = () => {
 
     let { url } = useRouteMatch();
-    const { user, admin } = useAuth();
+    const { admin } = useAuth();
 
     return (
         <div>
