@@ -59,9 +59,9 @@ const ManageAllOrders = () => {
 
     // Load all orders from Server
     useEffect(() => {
-        axios.get(`http://localhost:5000/all-orders?email=${user.email}`)
+        axios.get(`http://localhost:5000/all-orders`)
             .then(res => {
-                console.log(res.data);
+                setOrders(res.data);
             })
     }, [])
 
@@ -88,14 +88,14 @@ const ManageAllOrders = () => {
                                         {" "}
                                         {
                                             <img
-                                                src={order?.img}
+                                                src={order?.product?.img}
                                                 style={{ height: "40px", width: "40px" }}
                                                 className="img-fluid"
                                                 alt=""
                                             />
                                         }{" "}
                                     </th>
-                                    <td> {order?.title} </td>
+                                    <td> {order?.product?.title} </td>
                                     <td> {order?.email} </td>
                                     <td> {order?.status} </td>
                                     <td>
