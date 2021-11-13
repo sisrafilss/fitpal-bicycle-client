@@ -17,6 +17,9 @@ const NestedRoutes = ({ setPageTitle }) => {
     let { path } = useRouteMatch();
     return (
         <Switch>
+            <Route exact path={`${path}`}>
+                <MyOrders setPageTitle={setPageTitle} />
+            </Route>
             <Route path={`${path}/my-orders`}>
                 <MyOrders setPageTitle={setPageTitle} />
             </Route>
