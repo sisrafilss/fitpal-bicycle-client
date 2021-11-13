@@ -6,6 +6,7 @@ import './ManageAllOrders.css'
 const ManageAllOrders = () => {
 
     const [orders, setOrders] = useState([]);
+    const [ordersChange, setOrdersChange] = useState(false);
 
     // Load all orders from Server
     useEffect(() => {
@@ -13,13 +14,22 @@ const ManageAllOrders = () => {
             .then(res => {
                 setOrders(res.data);
             })
-    }, [])
+    }, [ordersChange]);
+
+    const handleApprove = (id) => {
+        axios.put(`http://localhost:5000/all-orders/${id}`)
+            .then(res => {
+                if (res.data.modifiedCount > 0) {
+                    setOrdersChange(true);
+                }
+            })
+    }
 
     return (
         <div className="container py-4">
             <div className="orders-container">
                 {/* <h1 className={orders.length && "hidden"}>There is no Order Yet!</h1> */}
-                <div className={!orders.length && "hidden"}>
+                <div>
                     <table className="table table-hover">
                         <thead>
                             <tr>
@@ -51,14 +61,14 @@ const ManageAllOrders = () => {
                                         // onClick={() => handleCancelOrder(order._id)}
                                         style={{ cursor: "pointer" }}
                                     >
-                                        <div class="dropdown">
-                                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <div className="dropdown">
+                                            <button className="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
                                                 Actions
                                             </button>
-                                            <ul class="dropdown-menu dropdown-menu-dark actions-container" aria-labelledby="dropdownMenuButton2">
-                                                <li class="dropdown-item">Approve</li>
-                                                <li><hr class="dropdown-divider" /></li>
-                                                <li class="dropdown-item">Delete</li>
+                                            <ul className="dropdown-menu dropdown-menu-dark actions-container" aria-labelledby="dropdownMenuButton2">
+                                                <li onClick={() => handleApprove(order?._id)} className="dropdown-item">Approve</li>
+                                                <li><hr className="dropdown-divider" /></li>
+                                                <li className="dropdown-item">Delete</li>
 
                                             </ul>
                                         </div>
