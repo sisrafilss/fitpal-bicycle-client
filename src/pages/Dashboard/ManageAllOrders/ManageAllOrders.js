@@ -1,4 +1,7 @@
+import axios from 'axios';
 import React from 'react';
+import { useEffect, useState } from 'react/cjs/react.development';
+import useAuth from '../../../hooks/useAuth';
 import bicycle from '../../../images/products/bicycle-1.jpg'
 
 const orders = [
@@ -50,6 +53,18 @@ const orders = [
 ]
 
 const ManageAllOrders = () => {
+
+    const [orders, setOrders] = useState([]);
+    const { user } = useAuth();
+
+    // Load all orders from Server
+    useEffect(() => {
+        axios.get(`http://localhost:5000/all-orders?email=${user.email}`)
+            .then(res => {
+                console.log(res.data);
+            })
+    }, [])
+
     return (
         <div className="container py-4">
             <div className="orders-container">

@@ -1,3 +1,4 @@
+import axios from "axios";
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, createUserWithEmailAndPassword, updateProfile, signInWithEmailAndPassword } from "firebase/auth";
 import { useEffect, useState } from "react";
 import initializeAuthentication from "../pages/Login/Firebase/firebase.init";
@@ -23,6 +24,10 @@ const useFirebase = () => {
                 // Set user to user state
                 const newUser = { email, displayName: name }
                 setUser(newUser);
+
+                // Send User data to server
+                axios.post('http://localhost:5000/users', newUser)
+                    .then(() => { });
 
                 // Set user to firebase
                 updateProfile(auth.currentUser, {
@@ -73,6 +78,15 @@ const useFirebase = () => {
                 const user = result.user;
                 setAuthError('');
                 setUser(user);
+
+                // Set user data to database
+                axios.put('http://localhost:5000/users', {
+                    displayName: user.displayName,
+                    email: user.email,
+                })
+                    .then(() => { });
+
+                // Redirect user to the home page after successfully registration
                 const destination = location?.state?.from || "/";
                 history.replace(destination);
             }).catch((error) => {
