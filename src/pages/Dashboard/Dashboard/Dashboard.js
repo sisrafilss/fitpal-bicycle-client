@@ -1,5 +1,4 @@
-import React from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import NestedRoutes from '../NestedRoutes/NestedRoutes';
 import SidebarNavigation from '../SidebarNavigation/SidebarNavigation';
@@ -27,11 +26,6 @@ const Dashboard = () => {
                         </div>
                     )}
                 </div>
-
-
-
-
-
                 <div className="nested-routes">
                     <NestedRoutes setPageTitle={setPageTitle} />
                 </div>
