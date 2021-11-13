@@ -13,33 +13,33 @@ import ManageProducts from '../ManageProducts/ManageProducts';
 import MyOrders from '../MyOrders/MyOrders';
 import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
-const NestedRoutes = () => {
+const NestedRoutes = ({ setPageTitle }) => {
     let { path } = useRouteMatch();
     return (
         <Switch>
             <Route path={`${path}/my-orders`}>
-                <MyOrders />
+                <MyOrders setPageTitle={setPageTitle} />
             </Route>
             <Route path={`${path}/payment`}>
-                <Payment />
+                <Payment setPageTitle={setPageTitle} />
             </Route>
             <Route path={`${path}/review`}>
-                <Review />
+                <Review setPageTitle={setPageTitle} />
             </Route>
             <Route path={`${path}/logout`}>
-                <LogOut />
+                <LogOut setPageTitle={setPageTitle} />
             </Route>
             <AdminRoute path={`${path}/manage-all-orders`}>
-                <ManageAllOrders />
+                <ManageAllOrders setPageTitle={setPageTitle} />
             </AdminRoute>
             <AdminRoute path={`${path}/add-product`}>
-                <AddProduct />
+                <AddProduct setPageTitle={setPageTitle} />
             </AdminRoute>
             <AdminRoute path={`${path}/make-admin`}>
-                <MakeAdmin />
+                <MakeAdmin setPageTitle={setPageTitle} />
             </AdminRoute>
             <AdminRoute path={`${path}/manage-products`}>
-                <ManageProducts />
+                <ManageProducts setPageTitle={setPageTitle} />
             </AdminRoute>
         </Switch>
     );

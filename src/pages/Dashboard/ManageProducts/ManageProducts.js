@@ -1,8 +1,8 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 
-const ManageProducts = () => {
-
+const ManageProducts = ({ setPageTitle }) => {
+    setPageTitle('Manage Products')
     const [products, setProducts] = useState([]);
     const [productsChange, setProductschange] = useState(false);
 

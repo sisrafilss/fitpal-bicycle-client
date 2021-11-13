@@ -2,8 +2,8 @@ import axios from 'axios';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 
-const MakeAdmin = () => {
-
+const MakeAdmin = ({ setPageTitle }) => {
+  setPageTitle('Add an Admin')
   // React Hook Form
   const {
     register,

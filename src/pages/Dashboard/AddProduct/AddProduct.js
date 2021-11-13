@@ -3,8 +3,8 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 
-const AddProduct = () => {
-
+const AddProduct = ({ setPageTitle }) => {
+    setPageTitle('Add a Product')
     // React Hook Form
     const {
         register,

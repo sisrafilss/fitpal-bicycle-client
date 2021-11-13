@@ -3,8 +3,8 @@ import React, { useEffect, useState } from 'react';
 import './ManageAllOrders.css'
 
 
-const ManageAllOrders = () => {
-
+const ManageAllOrders = ({ setPageTitle }) => {
+    setPageTitle('Manage Orders')
     const [orders, setOrders] = useState([]);
     const [ordersChange, setOrdersChange] = useState(false);
 

@@ -3,8 +3,9 @@ import React, { useEffect, useState } from 'react';
 import useAuth from '../../../hooks/useAuth';
 import './MyOrders.css'
 
-const MyOrders = () => {
+const MyOrders = ({ setPageTitle }) => {
 
+    setPageTitle('My Orders')
     const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
     const [productState, setProductState] = useState(false);

@@ -6,8 +6,8 @@ import ReactStars from "react-rating-stars-component";
 import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
 
-const Review = () => {
-
+const Review = ({ setPageTitle }) => {
+    setPageTitle('Review')
     const { user } = useAuth();
     const [rating, setRating] = useState(null);
     const [reviewSubmited, setReviewSubmited] = useState(false);

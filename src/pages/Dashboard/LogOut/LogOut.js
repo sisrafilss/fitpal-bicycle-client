@@ -1,7 +1,8 @@
 import React from 'react';
 import useAuth from '../../../hooks/useAuth';
 
-const LogOut = () => {
+const LogOut = ({ setPageTitle }) => {
+    setPageTitle('Log Out');
     const { user, logOut } = useAuth();
     return (
         <div className="container my-5">
