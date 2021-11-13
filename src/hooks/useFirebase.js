@@ -10,7 +10,7 @@ const useFirebase = () => {
     const [user, setUser] = useState({});
     const [authError, setAuthError] = useState('');
     const [isLoading, setIsLoading] = useState(true);
-    const [admin, setAdmin] = useState(true); // Setting true at inital state only for testing purpose. It will change after connecting database.
+    const [admin, setAdmin] = useState(false); // Setting true at inital state only for testing purpose. It will change after connecting database.
 
     const auth = getAuth();
 
@@ -117,6 +117,15 @@ const useFirebase = () => {
             setAuthError(error);
         });
     }
+
+    useEffect(() => {
+        // Check admin status
+        axios.get(`http://localhost:5000/users/${user.email}`)
+            .then(res => {
+                setAdmin(res?.data?.admin);
+            })
+    }, [user])
+
 
     return {
         user,
