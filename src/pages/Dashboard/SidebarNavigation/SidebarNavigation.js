@@ -13,14 +13,29 @@ const SidebarNavigation = () => {
         <div>
             <div className="logo-section">
                 <Link to="/home">
-                    <img src={logo} style={{ width: '35px', height: '35px' }} className="d-block mx-auto" alt="" />
-                    <span className="ms-2 h3 d-inline-block" style={{ color: '#f1f1f1' }}>FitPal</span>
+                    <img
+                        src={logo}
+                        style={{ width: '35px', height: '35px' }}
+                        className="d-block mx-auto"
+                        alt=""
+                    />
+                    <span
+                        className="ms-2 h3
+                    d-inline-block"
+                        style={{ color: '#f1f1f1' }}
+                    >
+                        FitPal
+                    </span>
                 </Link>
             </div>
             <div className="sidenav">
-                <Link to={`${url}/my-orders`}>My Orders</Link>
-                <Link to={`${url}/payment`}>Payment</Link>
-                <Link to={`${url}/review`}>Review</Link>
+                {
+                    !admin && <div>
+                        <Link to={`${url}/my-orders`}>My Orders</Link>
+                        <Link to={`${url}/payment`}>Payment</Link>
+                        <Link to={`${url}/review`}>Review</Link>
+                    </div>
+                }
                 {
                     admin && <div>
                         <Link to={`${url}/manage-all-orders`}>All Orders</Link>

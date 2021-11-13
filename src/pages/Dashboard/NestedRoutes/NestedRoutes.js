@@ -4,6 +4,7 @@ import {
     Route,
     useRouteMatch
 } from "react-router-dom";
+import useAuth from '../../../hooks/useAuth';
 import AdminRoute from '../../Login/AdminRoute/AdminRoute';
 import AddProduct from '../AddProduct/AddProduct';
 import LogOut from '../LogOut/LogOut';
@@ -15,11 +16,16 @@ import Payment from '../Payment/Payment';
 import Review from '../Review/Review';
 const NestedRoutes = ({ setPageTitle }) => {
     let { path } = useRouteMatch();
+    const { admin } = useAuth();
     return (
         <Switch>
-            <Route exact path={`${path}`}>
-                <MyOrders setPageTitle={setPageTitle} />
-            </Route>
+
+            {admin ? <AdminRoute exact path={`${path}`}>
+                <ManageAllOrders setPageTitle={setPageTitle} />
+            </AdminRoute> :
+                <Route exact path={`${path}`}>
+                    <MyOrders setPageTitle={setPageTitle} />
+                </Route>}
             <Route path={`${path}/my-orders`}>
                 <MyOrders setPageTitle={setPageTitle} />
             </Route>
@@ -32,6 +38,7 @@ const NestedRoutes = ({ setPageTitle }) => {
             <Route path={`${path}/logout`}>
                 <LogOut setPageTitle={setPageTitle} />
             </Route>
+
             <AdminRoute path={`${path}/manage-all-orders`}>
                 <ManageAllOrders setPageTitle={setPageTitle} />
             </AdminRoute>
