@@ -142,9 +142,9 @@ const PlaceOrder = () => {
                         />
                     </form>
                     {
-                        orderSuccess && <div class="alert alert-success mt-5 alert-dismissible fade show" role="alert">
+                        orderSuccess && <div className="alert alert-success mt-5 alert-dismissible fade show" role="alert">
                             Order Placed Successfully.
-                            <button onClick={() => setOrderSuccess(false)} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                            <button onClick={() => setOrderSuccess(false)} type="button" className="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>
                     }
                 </div>

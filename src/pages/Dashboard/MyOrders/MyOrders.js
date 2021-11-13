@@ -4,53 +4,11 @@ import useAuth from '../../../hooks/useAuth';
 import bicycle from '../../../images/products/bicycle-1.jpg';
 import './MyOrders.css'
 
-const myOrders = [
-    {
-        id: 1,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending'
-    },
-    {
-        id: 2,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending'
-    },
-    {
-        id: 3,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending'
-    },
-    {
-        id: 4,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending'
-    },
-    {
-        id: 5,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending'
-    },
-]
-
 const MyOrders = () => {
 
     const { user } = useAuth();
     const [myOrders, setMyOrders] = useState([]);
+    const [productState, setProductState] = useState(false);
 
     // Load my orders from database
     useEffect(() => {
@@ -59,14 +17,29 @@ const MyOrders = () => {
             .then(res => {
                 setMyOrders(res.data);
             })
-    }, [])
+    }, [productState]);
+
+    // handle Cancel/delete order
+    const handleDeleteOrder = (id) => {
+        const proceed = window.confirm('Are sure, want to cancell?');
+        if (proceed) {
+            const url = `http://localhost:5000/my-orders/${id}`
+            axios.delete(url)
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        setProductState(true);
+                        alert('Order Cancelled!');
+                    }
+                })
+        }
+    }
 
     return (
         <div className="container">
             <div className="orders-container">
                 {/* <h1 className={myOrders.length && "hidden"}>You have no Order Yet!</h1> */}
-                <h2 className="display-5 text-center my-4">Your All Orders</h2>
-                <div className={!myOrders.length && "hidden"}>
+                <h2 className="display-5 text-center my-4">Your All Orders: {myOrders.length} </h2>
+                <div>
                     <table className="table table-hover">
                         <thead>
                             <tr>
@@ -95,7 +68,7 @@ const MyOrders = () => {
                                     <td> ${order?.product?.price} </td>
                                     <td> {order?.status} </td>
                                     <td
-                                        // onClick={() => handleCancelOrder(order._id)}
+                                        onClick={() => handleDeleteOrder(order._id)}
                                         style={{ cursor: "pointer" }}
                                     >
                                         X
