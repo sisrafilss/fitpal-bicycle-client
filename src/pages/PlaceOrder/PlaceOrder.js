@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import Footer from '../Shared/Footer/Footer/Footer';
 import Header from '../Shared/Header/Header';
@@ -6,87 +6,21 @@ import bicycle from '../../images/products/bicycle-1.jpg';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 import './PlaceOrder.css'
-
-const products = [
-    {
-        id: 1,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 2,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 3,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 4,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 5,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 6,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 7,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 8,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 9,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234
-    },
-    {
-        id: 10,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Nobis repellendus officiis laborum ab nemo eveniet enim error at. Voluptates ad harum illo tenetur hic esse similique quae repellat odit architecto, officia ea soluta expedita consectetur est accusantium. Ipsa, quae eveniet itaque ex blanditiis aliquam sint praesentium quaerat tempora et quia, similique dicta saepe possimus eaque, accusamus illum harum aliquid eos aspernatur. Excepturi, quidem sequi. Aliquam, impedit beatae odit ea molestias, iste cum omnis deleniti, perspiciatis veritatis dolor recusandae repellat ipsa eveniet perferendis iusto praesentium doloremque veniam. Pariatur odio modi blanditiis quo tenetur officia, officiis, fugit nisi soluta facilis nemo similique.',
-        img: bicycle,
-        price: 234
-    },
-]
+import axios from 'axios';
 
 const PlaceOrder = () => {
-
+    const [product, setProduct] = useState({});
     const { user } = useAuth();
     const { productId } = useParams();
 
+    useEffect(() => {
+        const url = `http://localhost:5000/product/${productId}`;
+        axios(url)
+            .then((res) => {
+                setProduct(res.data);
+            })
+    }, []);
 
-    const product = products.find(pd => pd.id === parseInt(productId));
     const { title, description, img, price } = product;
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -100,7 +34,8 @@ const PlaceOrder = () => {
     return (
         <div>
             <Header />
-            <div className="container my-5">
+            <div className="container mt-4 mb-5">
+                <h2 className="mb-4 text-primary text-center display-5 fw-bold text-decoration-underline">Product Detail</h2>
                 <div className="card mb-3">
                     <div className="row">
                         <div className="col-md-6 col-sm-12">
