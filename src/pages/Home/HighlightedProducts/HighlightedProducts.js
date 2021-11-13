@@ -1,20 +1,18 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import SectionHead from '../../Shared/SectionHead/SectionHead';
-import bicycle from '../../../images/products/bicycle-1.jpg';
 import SingleProduct from '../../Shared/SingleProduct/SingleProduct';
 import { Link } from 'react-router-dom';
-import { useState } from 'react/cjs/react.development';
 import axios from 'axios';
 
 const HighlightedProducts = () => {
 
-    const [highlightedProducts, setHighlightedProducts] = useState([]);
+    const [products, setProducts] = useState([]);
 
     // Load Highlighted products
     useEffect(() => {
-        axios.get('http://localhost:5000/highlighted-products')
+        axios.get('https://gentle-lake-31657.herokuapp.com/highlighted-products')
             .then(res => {
-                setHighlightedProducts(res.data);
+                setProducts(res.data);
             })
     }, [])
 
@@ -33,7 +31,7 @@ const HighlightedProducts = () => {
             <div className="container">
                 <div className="row row-cols-1 row-cols-md-3 g-4">
                     {
-                        highlightedProducts.map(product => <SingleProduct key={product._id} product={product} />)
+                        products.map(product => <SingleProduct key={product._id} product={product} />)
                     }
                 </div>
                 <div className="my-5 d-grid">

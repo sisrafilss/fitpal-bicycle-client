@@ -26,7 +26,7 @@ const useFirebase = () => {
                 setUser(newUser);
 
                 // Send User data to server
-                axios.post('http://localhost:5000/users', newUser)
+                axios.post('https://gentle-lake-31657.herokuapp.com/users', newUser)
                     .then(() => { });
 
                 // Set user to firebase
@@ -80,7 +80,7 @@ const useFirebase = () => {
                 setUser(user);
 
                 // Set user data to database
-                axios.put('http://localhost:5000/users', {
+                axios.put('https://gentle-lake-31657.herokuapp.com/users', {
                     displayName: user.displayName,
                     email: user.email,
                 })
@@ -120,7 +120,7 @@ const useFirebase = () => {
 
     useEffect(() => {
         // Check admin status
-        axios.get(`http://localhost:5000/users/${user.email}`)
+        axios.get(`https://gentle-lake-31657.herokuapp.com/users/${user.email}`)
             .then(res => {
                 setAdmin(res?.data?.admin);
             })

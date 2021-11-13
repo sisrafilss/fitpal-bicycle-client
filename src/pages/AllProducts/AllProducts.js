@@ -1,6 +1,5 @@
 import axios from 'axios';
-import React, { useEffect } from 'react';
-import { useState } from 'react/cjs/react.development';
+import React, { useEffect, useState } from 'react';
 import Footer from '../Shared/Footer/Footer/Footer';
 import Header from '../Shared/Header/Header';
 import SectionHead from '../Shared/SectionHead/SectionHead';
@@ -12,7 +11,7 @@ const AllProducts = () => {
 
     // Load Highlighted products
     useEffect(() => {
-        axios.get('http://localhost:5000/products')
+        axios.get('https://gentle-lake-31657.herokuapp.com/products')
             .then(res => {
                 setProducts(res.data);
             })

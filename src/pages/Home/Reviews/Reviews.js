@@ -9,7 +9,7 @@ const Reviews = () => {
 
     // Load Highlighted products
     useEffect(() => {
-        axios.get('http://localhost:5000/reviews')
+        axios.get('https://gentle-lake-31657.herokuapp.com/reviews')
             .then(res => {
                 setReviews(res.data);
             })

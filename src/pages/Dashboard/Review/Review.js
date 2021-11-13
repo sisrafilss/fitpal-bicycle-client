@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './Review.css'
 import ReactStars from "react-rating-stars-component";
-import { useState } from 'react/cjs/react.development';
+
 import useAuth from '../../../hooks/useAuth';
 import axios from 'axios';
 
@@ -28,7 +28,7 @@ const Review = () => {
             feedback: data.review
         }
 
-        axios.post('http://localhost:5000/review', review)
+        axios.post('https://gentle-lake-31657.herokuapp.com/review', review)
             .then(res => {
                 if (res.data.insertedId) {
                     setReviewSubmited(true);

@@ -1,65 +1,14 @@
 import axios from 'axios';
-import React from 'react';
-import { useEffect, useState } from 'react/cjs/react.development';
-import useAuth from '../../../hooks/useAuth';
-import bicycle from '../../../images/products/bicycle-1.jpg'
+import React, { useEffect, useState } from 'react';
 
-const orders = [
-    {
-        id: 1,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending',
-        email: 'email@gmail.com'
-    },
-    {
-        id: 2,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending',
-        email: 'email@gmail.com'
-    },
-    {
-        id: 3,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending',
-        email: 'email@gmail.com'
-    },
-    {
-        id: 4,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending',
-        email: 'email@gmail.com'
-    },
-    {
-        id: 5,
-        title: 'Mountain Bike',
-        description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente perspiciatis repudiandae eligendi vero culpa sunt eos at qui reiciendis aspernatur repellendus numquam obcaecati vitae, doloribus eaque tempore dignissimos tenetur iusto!',
-        img: bicycle,
-        price: 234,
-        status: 'Pending',
-        email: 'email@gmail.com'
-    },
-]
 
 const ManageAllOrders = () => {
 
     const [orders, setOrders] = useState([]);
-    const { user } = useAuth();
 
     // Load all orders from Server
     useEffect(() => {
-        axios.get(`http://localhost:5000/all-orders`)
+        axios.get(`https://gentle-lake-31657.herokuapp.com/all-orders`)
             .then(res => {
                 setOrders(res.data);
             })
