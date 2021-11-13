@@ -49,6 +49,7 @@ const MyOrders = ({ setPageTitle }) => {
                                             <th scope="col"></th>
                                             <th scope="col">Product Name</th>
                                             <th scope="col">Price</th>
+                                            <th scope="col">Placed At</th>
                                             <th scope="col">Order Status</th>
                                             <th scope="col">Cancel</th>
                                         </tr>
@@ -69,6 +70,7 @@ const MyOrders = ({ setPageTitle }) => {
                                                 </th>
                                                 <td> {order?.product?.title} </td>
                                                 <td> ${order?.product?.price} </td>
+                                                <td> {order?.placedAt} </td>
                                                 <td> {order?.status} </td>
                                                 <td
                                                     onClick={() => handleDeleteOrder(order._id)}

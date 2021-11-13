@@ -19,13 +19,15 @@ const NestedRoutes = ({ setPageTitle }) => {
     const { admin } = useAuth();
     return (
         <Switch>
-
-            {admin ? <AdminRoute exact path={`${path}`}>
-                <ManageAllOrders setPageTitle={setPageTitle} />
-            </AdminRoute> :
-                <Route exact path={`${path}`}>
-                    <MyOrders setPageTitle={setPageTitle} />
-                </Route>}
+            {/* Separate Dashboard default page for admin ad subscriber */}
+            {
+                admin ? <AdminRoute exact path={`${path}`}>
+                    <ManageAllOrders setPageTitle={setPageTitle} />
+                </AdminRoute> :
+                    <Route exact path={`${path}`}>
+                        <MyOrders setPageTitle={setPageTitle} />
+                    </Route>
+            }
             <Route path={`${path}/my-orders`}>
                 <MyOrders setPageTitle={setPageTitle} />
             </Route>

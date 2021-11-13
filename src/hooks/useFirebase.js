@@ -120,14 +120,12 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
-        setIsLoading(true);
         // Check admin status
         axios.get(`https://gentle-lake-31657.herokuapp.com/users/${user.email}`)
             .then(res => {
                 setAdmin(res?.data?.admin);
             })
-            .finally(() => setIsLoading(false));
-    }, [user])
+    }, [user.email])
 
 
     return {

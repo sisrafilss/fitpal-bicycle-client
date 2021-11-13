@@ -5,6 +5,7 @@ import './ManageAllOrders.css'
 
 const ManageAllOrders = ({ setPageTitle }) => {
     setPageTitle('Manage Orders')
+
     const [orders, setOrders] = useState([]);
     const [ordersChange, setOrdersChange] = useState(false);
 
@@ -50,6 +51,7 @@ const ManageAllOrders = ({ setPageTitle }) => {
                                 <th scope="col"></th>
                                 <th scope="col">Service Name</th>
                                 <th scope="col">Ordered By</th>
+                                <th scope="col">Placed At</th>
                                 <th scope="col">Status</th>
                                 <th scope="col">Actions</th>
                             </tr>
@@ -70,6 +72,7 @@ const ManageAllOrders = ({ setPageTitle }) => {
                                     </th>
                                     <td> {order?.product?.title} </td>
                                     <td> {order?.email} </td>
+                                    <td> {order?.placedAt} </td>
                                     <td> {order?.status} </td>
                                     <td
                                         // onClick={() => handleCancelOrder(order._id)}
