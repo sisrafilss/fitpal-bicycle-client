@@ -16,7 +16,7 @@ const AddProduct = () => {
         console.log(data);
         axios
             .post(
-                "http://localhost:5000/add-product",
+                "https://gentle-lake-31657.herokuapp.com/add-product",
                 data
             )
             .then((res) => {

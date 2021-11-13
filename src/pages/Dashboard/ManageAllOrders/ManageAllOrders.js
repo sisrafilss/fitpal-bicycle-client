@@ -18,7 +18,7 @@ const ManageAllOrders = () => {
 
     // Handle Order Status
     const handleApprove = (id) => {
-        axios.put(`http://localhost:5000/all-orders/${id}`)
+        axios.put(`https://gentle-lake-31657.herokuapp.com/all-orders/${id}`)
             .then(res => {
                 if (res.data.modifiedCount > 0) {
                     setOrdersChange(true);
@@ -29,7 +29,7 @@ const ManageAllOrders = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, want to delete?');
         if (proceed) {
-            axios.delete(`http://localhost:5000/all-orders/${id}`)
+            axios.delete(`https://gentle-lake-31657.herokuapp.com/all-orders/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         setOrdersChange(true);

@@ -8,7 +8,7 @@ const ManageProducts = () => {
 
     // Load all products from database
     useEffect(() => {
-        axios.get('http://localhost:5000/products')
+        axios.get('https://gentle-lake-31657.herokuapp.com/products')
             .then(res => {
                 setProducts(res.data);
                 // console.log(res.data);
@@ -19,7 +19,7 @@ const ManageProducts = () => {
     const handleDelete = (id) => {
         const proceed = window.confirm('Are you sure, want to delete?');
         if (proceed) {
-            axios.delete(`http://localhost:5000/products/${id}`)
+            axios.delete(`https://gentle-lake-31657.herokuapp.com/products/${id}`)
                 .then(res => {
                     if (res.data.deletedCount > 0) {
                         setProductschange(true);
