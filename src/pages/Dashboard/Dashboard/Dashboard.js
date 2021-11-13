@@ -12,7 +12,9 @@ const Dashboard = () => {
                 <div className="w-100 py-4 mt-0 dashboard-top">
                     <h3 className="ms-5">Dashboard</h3>
                 </div>
-                <NestedRoutes />
+                <div className="nested-routes">
+                    <NestedRoutes />
+                </div>
             </div>
         </div>
     );

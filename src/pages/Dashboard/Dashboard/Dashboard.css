@@ -1,6 +1,12 @@
 .dashboard-top {
   background-color: #111;
+  position: fixed;
+  top: 0;
 }
 .dashboard-top h3 {
   color: #f1f1f1 !important;
+}
+
+.nested-routes {
+  margin-top: 120px;
 }

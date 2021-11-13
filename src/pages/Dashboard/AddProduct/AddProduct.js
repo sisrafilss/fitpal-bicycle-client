@@ -1,4 +1,5 @@
 // import axios from "axios";
+import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 
@@ -13,23 +14,19 @@ const AddProduct = () => {
     } = useForm();
     const onSubmit = (data) => {
         console.log(data);
-        /* axios
-          .post(
-            "https://immense-journey-09745.herokuapp.com/add-a-new-service",
-            data
-          )
-          .then((res) => {
-            if (res.data?.insertedId) {
-              alert(
-                "Service added Successfully. Take a look at services page to check."
-              );
-              reset();
-            } else {
-              alert(res.data?.caused);
-              
-            }
-          }); */
-        reset();
+        axios
+            .post(
+                "http://localhost:5000/add-product",
+                data
+            )
+            .then((res) => {
+                if (res.data?.insertedId) {
+                    alert(
+                        "Porduct added Successfully. Take a look at Products page to check."
+                    );
+                    reset();
+                }
+            });
     };
 
     return (
