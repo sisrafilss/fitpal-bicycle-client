@@ -98,15 +98,16 @@ const useFirebase = () => {
     // Observing user state
     useEffect(() => {
         setIsLoading(true);
-        onAuthStateChanged(auth, (user) => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user);
                 setAuthError('');
-                setIsLoading(false);
-            } else {
 
+            } else {
             }
+            setIsLoading(false);
         });
+        return () => unsubscribe;
     }, [auth]);
 
     // Log Our
@@ -119,11 +120,13 @@ const useFirebase = () => {
     }
 
     useEffect(() => {
+        setIsLoading(true);
         // Check admin status
         axios.get(`https://gentle-lake-31657.herokuapp.com/users/${user.email}`)
             .then(res => {
                 setAdmin(res?.data?.admin);
             })
+            .finally(() => setIsLoading(false));
     }, [user])
 
 

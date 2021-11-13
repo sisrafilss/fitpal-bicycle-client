@@ -16,6 +16,7 @@ const ManageAllOrders = () => {
             })
     }, [ordersChange]);
 
+    // Handle Order Status
     const handleApprove = (id) => {
         axios.put(`http://localhost:5000/all-orders/${id}`)
             .then(res => {
@@ -23,6 +24,19 @@ const ManageAllOrders = () => {
                     setOrdersChange(true);
                 }
             })
+    }
+
+    const handleDelete = (id) => {
+        const proceed = window.confirm('Are you sure, want to delete?');
+        if (proceed) {
+            axios.delete(`http://localhost:5000/all-orders/${id}`)
+                .then(res => {
+                    if (res.data.deletedCount > 0) {
+                        setOrdersChange(true);
+                        alert('Deleted Successfully!');
+                    };
+                });
+        }
     }
 
     return (
@@ -68,7 +82,7 @@ const ManageAllOrders = () => {
                                             <ul className="dropdown-menu dropdown-menu-dark actions-container" aria-labelledby="dropdownMenuButton2">
                                                 <li onClick={() => handleApprove(order?._id)} className="dropdown-item">Approve</li>
                                                 <li><hr className="dropdown-divider" /></li>
-                                                <li className="dropdown-item">Delete</li>
+                                                <li onClick={() => handleDelete(order?._id)} className="dropdown-item">Delete</li>
 
                                             </ul>
                                         </div>
