@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from "react-router-dom";
 import Footer from '../Shared/Footer/Footer/Footer';
 import Header from '../Shared/Header/Header';
-import bicycle from '../../images/products/bicycle-1.jpg';
 import { useForm } from "react-hook-form";
 import useAuth from '../../hooks/useAuth';
 import './PlaceOrder.css'
@@ -12,6 +11,7 @@ const PlaceOrder = () => {
     const [product, setProduct] = useState({});
     const { user } = useAuth();
     const { productId } = useParams();
+    const [orderSuccess, setOrderSuccess] = useState(false);
 
     useEffect(() => {
         const url = `http://localhost:5000/product/${productId}`;
@@ -19,16 +19,25 @@ const PlaceOrder = () => {
             .then((res) => {
                 setProduct(res.data);
             })
-    }, []);
+    }, [productId]);
 
     const { title, description, img, price } = product;
 
-    const { register, handleSubmit, formState: { errors } } = useForm();
+    const { register, reset, handleSubmit, formState: { errors } } = useForm();
     const onSubmit = data => {
-        console.log(data);
-        if (data) {
-            console.log(data);
+        const order = {
+            ...data,
+            placedAt: new Date().toLocaleString(),
+            product
         }
+        axios.post('http://localhost:5000/place-order', order)
+            .then(res => {
+                if (res.data.insertedId) {
+                    setOrderSuccess(true);
+                    reset()
+                }
+            })
+
     };
 
     return (
@@ -132,23 +141,15 @@ const PlaceOrder = () => {
                             value="Place Order"
                         />
                     </form>
+                    {
+                        orderSuccess && <div class="alert alert-success mt-5 alert-dismissible fade show" role="alert">
+                            Order Placed Successfully.
+                            <button onClick={() => setOrderSuccess(false)} type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    }
                 </div>
             </div>
-            {/* Order Confirmation Modal */}
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog ">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h4 className="modal-title text-success" id="exampleModalLabel">Order Success</h4>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            <p className="lead">You have Successfully Placed the Order! Please check My Order Page to check all of your orders and Order Status.</p>
-                        </div>
 
-                    </div>
-                </div>
-            </div>
             <Footer />
         </div>
     );

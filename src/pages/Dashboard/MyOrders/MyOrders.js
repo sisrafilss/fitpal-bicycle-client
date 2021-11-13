@@ -1,4 +1,6 @@
-import React from 'react';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
+import useAuth from '../../../hooks/useAuth';
 import bicycle from '../../../images/products/bicycle-1.jpg';
 import './MyOrders.css'
 
@@ -47,6 +49,18 @@ const myOrders = [
 
 const MyOrders = () => {
 
+    const { user } = useAuth();
+    const [myOrders, setMyOrders] = useState([]);
+
+    // Load my orders from database
+    useEffect(() => {
+        const url = `http://localhost:5000/my-orders?email=${user.email}`;
+        axios.get(url)
+            .then(res => {
+                setMyOrders(res.data);
+            })
+    }, [])
+
     return (
         <div className="container">
             <div className="orders-container">
@@ -70,15 +84,15 @@ const MyOrders = () => {
                                         {" "}
                                         {
                                             <img
-                                                src={order?.img}
+                                                src={order?.product?.img}
                                                 style={{ height: "40px", width: "40px" }}
                                                 className="img-fluid"
                                                 alt=""
                                             />
                                         }{" "}
                                     </th>
-                                    <td> {order?.title} </td>
-                                    <td> ${order?.price} </td>
+                                    <td> {order?.product?.title} </td>
+                                    <td> ${order?.product?.price} </td>
                                     <td> {order?.status} </td>
                                     <td
                                         // onClick={() => handleCancelOrder(order._id)}
