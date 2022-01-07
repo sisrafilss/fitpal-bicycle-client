@@ -1,0 +1,78 @@
+1.
+Name: Fitpal Roead Racer
+Description: In broad strokes, the differences between a race road bike and endurance road bike are along the lines of geometry, comfort, clearance, braking and gearing. Race bikes, like the Vantage Comp 1.0 get a bit of a bad wrap as being twitchy, or fast-handling – which is great when you're jostling for position in a race.
+
+Image URL: https://i.ibb.co/gdRG50B/fitpal-road-racer.jpg
+price: 322
+=======================================================================
+
+2.
+Name: FitPal Road King Pro
+Description: In broad strokes, the differences between a race road bike and endurance road bike are along the lines of geometry, comfort, clearance, braking and gearing. Race bikes, like the Vantage Comp 1.0 get a bit of a bad wrap as being twitchy, or fast-handling – which is great when you're jostling for position in a race.
+
+Image URL: https://i.ibb.co/gPVHC17/fitpal-road-king-pro.jpg
+Price: 531
+===========================================================================
+
+3.
+Name: Fitpal Mountain 1 
+Description: A mountain bike (MTB[1]) or mountain bicycle is a bicycle designed for off-road cycling. Mountain bikes share some similarities with other bicycles, but incorporate features designed to enhance durability and performance in rough terrain, which makes them heavy. These typically include a suspension fork, large knobby tires, more durable wheels, more powerful brakes, straight, extra wide handlebars to improve balance and comfort over rough terrain, lower gear-ratios for climbing steep grades and sometimes rear suspension for a smoother ride on rough terrain as well as dropper-posts to quickly adjust the seat height.
+
+Image URL: https://i.ibb.co/6mXdS54/mountain-bike-1.jpg
+Price: 658
+===================================================================================
+
+4.
+Name: Fitpal Mountain 3 
+Description: A mountain bike (MTB[1]) or mountain bicycle is a bicycle designed for off-road cycling. Mountain bikes share some similarities with other bicycles, but incorporate features designed to enhance durability and performance in rough terrain, which makes them heavy. These typically include a suspension fork, large knobby tires, more durable wheels, more powerful brakes, straight, extra wide handlebars to improve balance and comfort over rough terrain, lower gear-ratios for climbing steep grades and sometimes rear suspension for a smoother ride on rough terrain as well as dropper-posts to quickly adjust the seat height.
+
+Image URL: https://i.ibb.co/wwyWgC2/fitpal-mountain-bike-3.jpg
+Price: 456
+===========================================================================
+
+5.
+Name: Fitpal Classic
+Description: The Classic retro style cycles are all built in a traditional diamond-shaped (gents frames) and loop shaped (ladies frames) design and comes with a traditionally lugged and brazed hand built frame, which ensures a relaxed and ultra posture-friendly cycling experience at all times – widely referred to as sit-up-and-beg...
+The Classic retro style cycles are all built in a traditional diamond-shaped (gents frames) and loop shaped (ladies frames) design and comes with a traditionally lugged and brazed hand built frame, which ensures a relaxed and ultra posture-friendly cycling experience at all times – widely referred to as sit-up-and-beg 
+
+Image URL: https://i.ibb.co/2cKG0vK/fitpal-classic.jpg
+Price: 456
+===========================================================================
+
+6.
+Name: Fitpal Mountain 2
+Description: A mountain bike (MTB[1]) or mountain bicycle is a bicycle designed for off-road cycling. Mountain bikes share some similarities with other bicycles, but incorporate features designed to enhance durability and performance in rough terrain, which makes them heavy. These typically include a suspension fork, large knobby tires, more durable wheels, more powerful brakes, straight, extra wide handlebars to improve balance and comfort over rough terrain, lower gear-ratios for climbing steep grades and sometimes rear suspension for a smoother ride on rough terrain as well as dropper-posts to quickly adjust the seat height.
+
+Image URL: https://i.ibb.co/0X9CNXG/fitpal-mountain-2.jpg
+Price: 684
+===========================================================================
+
+
+7.
+Name: FitPal Commuter 1
+Description: Bicycle commuting is the use of a bicycle to travel from home to a place of work or study — in contrast to the use of a bicycle for sport, recreation or touring.
+Commuting especially lends itself to areas with relatively flat terrain and arrangements to keep riders relatively safe from the hazards of accidents with motorized traffic, e.g. separated bicycle lanes and a general acceptance of cyclists as traffic participants. The rise of the electric bicycle which is quickly surpassing the sales of conventional bicycles will effectively increase bicycle commuting in hilly areas and allow for longer journeys
+
+Image URL: https://i.ibb.co/7jNMbgY/fitpal-comuter-all-purpose.jpg
+Price: 290
+===========================================================================
+
+
+8.
+Name: FitPal Kids 1
+Description: A Children's bicycle seat is a saddle that is designed to be put on a bicycle for children to be transported in. The most common place for child bicycle seats are in the rear of the bicycle. A Children's bicycle seat is a saddle that is designed to be put on a bicycle for children to be transported in. The most common place for child bicycle seats are in the rear of the bicycle. A Children's bicycle seat is a saddle that is designed to be put on a bicycle for children to be transported in. The most common place for child bicycle seats are in the rear of the bicycle. A Children's bicycle seat is a saddle that is designed to be put on a bicycle for children to be transported in. The most common place for child bicycle seats are in the rear of the bicycle.
+
+Image URL: https://i.ibb.co/XYx7Jtj/fitpal-kids-with-carier.jpg
+Price: 299
+===========================================================================
+
+
+9.
+Name: FitPal E-Bike 1
+Description: An electric bicycle is a motorized bicycle with an integrated electric motor used to assist propulsion. Many kinds of e-bikes are available worldwide, but they generally fall into two broad categories: bikes that assist the rider's pedal-power and bikes that add a throttle, integrating moped-style functionality.
+An electric bicycle is a motorized bicycle with an integrated electric motor used to assist propulsion. Many kinds of e-bikes are available worldwide, but they generally fall into two broad categories: bikes that assist the rider's pedal-power and bikes that add a throttle, integrating moped-style functionality.
+
+
+Image URL: https://i.ibb.co/n7Wy4hR/fitpal-electric-folding.jpg
+Price: 864
+===========================================================================

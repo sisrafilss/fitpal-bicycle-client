@@ -5,7 +5,7 @@ import ReactStars from "react-rating-stars-component";
 const SingleReview = (props) => {
     const { name, img, feedback, rating } = props.review;
     return (
-        <div className="col-md-4 col-sm-12">
+        <div className="col-12">
             <div className="card border-1 shadow-sm text-justify">
                 <img src={img} className="review-img mt-3" alt="..." />
                 <h5 className="mt-4 text-dark text-center"> {name} </h5>

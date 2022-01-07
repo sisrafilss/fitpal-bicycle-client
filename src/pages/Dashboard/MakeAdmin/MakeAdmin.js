@@ -14,7 +14,7 @@ const MakeAdmin = ({ setPageTitle }) => {
   const onSubmit = (data) => {
     axios
       .put(
-        `https://gentle-lake-31657.herokuapp.com/make-admin`,
+        `http://localhost:5000/make-admin`,
         data
       )
       .then((res) => {

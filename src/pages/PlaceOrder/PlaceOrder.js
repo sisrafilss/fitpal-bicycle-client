@@ -14,7 +14,7 @@ const PlaceOrder = () => {
     const [orderSuccess, setOrderSuccess] = useState(false);
 
     useEffect(() => {
-        const url = `https://gentle-lake-31657.herokuapp.com/product/${productId}`;
+        const url = `http://localhost:5000/product/${productId}`;
         axios(url)
             .then((res) => {
                 setProduct(res.data);
@@ -30,7 +30,8 @@ const PlaceOrder = () => {
             placedAt: new Date().toLocaleString(),
             product
         }
-        axios.post('https://gentle-lake-31657.herokuapp.com/place-order', order)
+        console.log(order);
+        axios.post('http://localhost:5000/place-order', order)
             .then(res => {
                 if (res.data.insertedId) {
                     setOrderSuccess(true);
@@ -87,7 +88,7 @@ const PlaceOrder = () => {
                                 type="email"
                                 className="form-control"
                                 placeholder="Email"
-                                defaultValue={user.email}
+                                // defaultValue={user.email}
                                 {...register("email", { required: true })}
                             />
                             {errors.email && (

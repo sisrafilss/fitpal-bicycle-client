@@ -1,17 +1,16 @@
-import './App.css';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
-import AuthProvider from './contexts/AuthProvider/AuthProvider';
-import Home from './pages/Home/Home/Home';
-import NotFoundPage from './pages/NotFoundPage/NotFoundPage';
-import Login from './pages/Login/Login/Login';
-import AllProducts from './pages/AllProducts/AllProducts';
-import PrivatRoute from './pages/Login/PrivatRoute/PrivatRoute';
-import PlaceOrder from './pages/PlaceOrder/PlaceOrder';
-import Register from './pages/Login/Register/Register';
-import Dashboard from './pages/Dashboard/Dashboard/Dashboard';
+import "./App.css";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import AuthProvider from "./contexts/AuthProvider/AuthProvider";
+import Home from "./pages/Home/Home/Home";
+import NotFoundPage from "./pages/NotFoundPage/NotFoundPage";
+import Login from "./pages/Login/Login/Login";
+import AllProducts from "./pages/AllProducts/AllProducts";
+import PrivatRoute from "./pages/Login/PrivatRoute/PrivatRoute";
+import PlaceOrder from "./pages/PlaceOrder/PlaceOrder";
+import Register from "./pages/Login/Register/Register";
+import Dashboard from "./pages/Dashboard/Dashboard/Dashboard";
 
 function App() {
-
   return (
     <AuthProvider>
       <Router>

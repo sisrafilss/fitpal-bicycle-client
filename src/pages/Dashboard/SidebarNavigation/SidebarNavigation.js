@@ -32,7 +32,6 @@ const SidebarNavigation = () => {
                 {
                     !admin && <div>
                         <Link to={`${url}/my-orders`}>My Orders</Link>
-                        <Link to={`${url}/payment`}>Payment</Link>
                         <Link to={`${url}/review`}>Review</Link>
                     </div>
                 }
