@@ -104,3 +104,4 @@ const AddProduct = ({ setPageTitle }) => {
 };
 
 export default AddProduct;
+

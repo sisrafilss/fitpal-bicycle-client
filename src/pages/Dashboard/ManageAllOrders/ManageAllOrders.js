@@ -6,20 +6,23 @@ const ManageAllOrders = ({ setPageTitle }) => {
   setPageTitle("Manage Orders");
 
   const [orders, setOrders] = useState([]);
-  const [ordersChange, setOrdersChange] = useState(false);
 
   // Load all orders from Server
   useEffect(() => {
     axios.get(`http://localhost:5000/all-orders`).then((res) => {
       setOrders(res.data);
     });
-  }, [ordersChange]);
+  }, []);
 
   // Handle Order Status
   const handleApprove = (id) => {
     axios.put(`http://localhost:5000/all-orders/${id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
-        setOrdersChange(true);
+        const upDatedOrder = orders.find((pd) => pd._id === id);
+        const remainingOrders = orders.filter((pd) => pd._id !== id);
+        upDatedOrder.status = "Shipped";
+        const newOrders = [...remainingOrders, upDatedOrder];
+        setOrders(newOrders);
       }
     });
   };
@@ -29,8 +32,9 @@ const ManageAllOrders = ({ setPageTitle }) => {
     if (proceed) {
       axios.delete(`http://localhost:5000/all-orders/${id}`).then((res) => {
         if (res.data.deletedCount > 0) {
-          setOrdersChange(true);
           alert("Deleted Successfully!");
+          const remainingOrders = orders.filter((ordr) => ordr._id !== id);
+          setOrders(remainingOrders);
         }
       });
     }

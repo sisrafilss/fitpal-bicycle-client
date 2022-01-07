@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 const ManageProducts = ({ setPageTitle }) => {
   setPageTitle("Manage Products");
   const [products, setProducts] = useState([]);
-  const [productsChange, setProductschange] = useState(false);
+  // const [productsChange, setProductschange] = useState(false);
 
   // Load all products from database
   useEffect(() => {
@@ -12,7 +12,7 @@ const ManageProducts = ({ setPageTitle }) => {
       setProducts(res.data);
       // console.log(res.data);
     });
-  }, [productsChange]);
+  }, []);
 
   // Handle delete a product
   const handleDelete = (id) => {
@@ -20,7 +20,8 @@ const ManageProducts = ({ setPageTitle }) => {
     if (proceed) {
       axios.delete(`http://localhost:5000/products/${id}`).then((res) => {
         if (res.data.deletedCount > 0) {
-          setProductschange(true);
+          const newProducts = products.filter((pd) => pd._id !== id);
+          setProducts(newProducts);
           alert("Deleted Successfully!");
         }
       });
@@ -49,7 +50,7 @@ const ManageProducts = ({ setPageTitle }) => {
                     {" "}
                     {
                       <img
-                        src={product?.img}
+                        src={`data:image/jpeg;base64,${product?.img}`}
                         style={{ height: "40px", width: "40px" }}
                         className="img-fluid"
                         alt=""

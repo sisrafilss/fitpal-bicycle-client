@@ -49,7 +49,7 @@ const PlaceOrder = () => {
                 <div className="card mb-3">
                     <div className="row">
                         <div className="col-md-6 col-sm-12">
-                            <img src={img} className="img-fluid rounded-start w-100" alt="..." />
+                            <img src={`data:image/jpeg;base64,${img}`} className="img-fluid rounded-start w-100" alt="..." />
                         </div>
                         <div className="col-md-6 col-sm-12">
                             <div className="card-body ps-4">
