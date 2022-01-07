@@ -28,7 +28,7 @@ const Review = ({ setPageTitle }) => {
             feedback: data.review
         }
 
-        axios.post('http://localhost:5000/review', review)
+        axios.post('https://gentle-lake-31657.herokuapp.com/review', review)
             .then(res => {
                 if (res.data.insertedId) {
                     setReviewSubmited(true);

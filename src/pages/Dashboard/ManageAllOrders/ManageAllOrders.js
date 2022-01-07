@@ -9,14 +9,14 @@ const ManageAllOrders = ({ setPageTitle }) => {
 
   // Load all orders from Server
   useEffect(() => {
-    axios.get(`http://localhost:5000/all-orders`).then((res) => {
+    axios.get(`https://gentle-lake-31657.herokuapp.com/all-orders`).then((res) => {
       setOrders(res.data);
     });
   }, []);
 
   // Handle Order Status
   const handleApprove = (id) => {
-    axios.put(`http://localhost:5000/all-orders/${id}`).then((res) => {
+    axios.put(`https://gentle-lake-31657.herokuapp.com/all-orders/${id}`).then((res) => {
       if (res.data.modifiedCount > 0) {
         const upDatedOrder = orders.find((pd) => pd._id === id);
         const remainingOrders = orders.filter((pd) => pd._id !== id);
@@ -30,7 +30,7 @@ const ManageAllOrders = ({ setPageTitle }) => {
   const handleDelete = (id) => {
     const proceed = window.confirm("Are you sure, want to delete?");
     if (proceed) {
-      axios.delete(`http://localhost:5000/all-orders/${id}`).then((res) => {
+      axios.delete(`https://gentle-lake-31657.herokuapp.com/all-orders/${id}`).then((res) => {
         if (res.data.deletedCount > 0) {
           alert("Deleted Successfully!");
           const remainingOrders = orders.filter((ordr) => ordr._id !== id);

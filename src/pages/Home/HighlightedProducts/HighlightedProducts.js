@@ -10,7 +10,7 @@ const HighlightedProducts = () => {
 
     // Load Highlighted products
     useEffect(() => {
-        axios.get('http://localhost:5000/highlighted-products')
+        axios.get('https://gentle-lake-31657.herokuapp.com/highlighted-products')
             .then(res => {
                 setProducts(res.data);
             })
