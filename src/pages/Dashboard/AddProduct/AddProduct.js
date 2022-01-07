@@ -13,8 +13,15 @@ const AddProduct = ({ setPageTitle }) => {
     reset,
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-    axios.post("http://localhost:5000/add-product", data).then((res) => {
+    const formData = new FormData();
+
+    formData.append("title", data.title);
+    formData.append("description", data.description);
+    formData.append("img", data.img[0]);
+    formData.append("price", data.price);
+
+    // console.log(data);
+    axios.post("http://localhost:5000/add-product", formData).then((res) => {
       if (res.data?.insertedId) {
         alert(
           "Porduct added Successfully. Take a look at Products page to check."
@@ -59,9 +66,10 @@ const AddProduct = ({ setPageTitle }) => {
           </div>
 
           <div className="mb-3">
-            <label className="form-label">Image URL</label>
+            <label className="form-label">Choose Image</label>
             <input
-              type="text"
+              type="file"
+              accept="image/*"
               className="form-control"
               placeholder="Service Image URL"
               {...register("img", { required: true })}

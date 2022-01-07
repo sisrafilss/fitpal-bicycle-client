@@ -9,7 +9,7 @@ const SingleProduct = (props) => {
         <div>
             <div className="col">
                 <div className="card shadow border-0">
-                    <img src={img} className="card-img-top card-img" alt="..." />
+                    <img src={`data:image/jpeg;base64,${img}`} className="card-img-top card-img" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title text-dark"> {title} </h5>
                         <p className="card-text card-description"> {description.slice(0, 150)} </p>
