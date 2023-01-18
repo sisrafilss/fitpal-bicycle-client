@@ -21,7 +21,7 @@ const AddProduct = ({ setPageTitle }) => {
     formData.append("price", data.price);
 
     // console.log(data);
-    axios.post("https://gentle-lake-31657.herokuapp.com/add-product", formData).then((res) => {
+    axios.post("https://fitpal-bicycle-server.onrender.com/add-product", formData).then((res) => {
       if (res.data?.insertedId) {
         alert(
           "Porduct added Successfully. Take a look at Products page to check."

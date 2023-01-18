@@ -9,7 +9,7 @@ const Reviews = () => {
 
   // Load Highlighted products
   useEffect(() => {
-    axios.get("https://gentle-lake-31657.herokuapp.com/reviews").then((res) => {
+    axios.get("https://fitpal-bicycle-server.onrender.com/reviews").then((res) => {
       setReviews(res.data);
     });
   }, []);

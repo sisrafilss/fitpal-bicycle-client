@@ -14,7 +14,7 @@ const MakeAdmin = ({ setPageTitle }) => {
   const onSubmit = (data) => {
     axios
       .put(
-        `https://gentle-lake-31657.herokuapp.com/make-admin`,
+        `https://fitpal-bicycle-server.onrender.com/make-admin`,
         data
       )
       .then((res) => {

@@ -13,7 +13,7 @@ const MyOrders = ({ setPageTitle }) => {
 
     // Load my orders from database
     useEffect(() => {
-        const url = `https://gentle-lake-31657.herokuapp.com/my-orders?email=${user.email}`;
+        const url = `https://fitpal-bicycle-server.onrender.com/my-orders?email=${user.email}`;
         axios.get(url)
             .then(res => {
                 setMyOrders(res.data);
@@ -24,7 +24,7 @@ const MyOrders = ({ setPageTitle }) => {
     const handleDeleteOrder = (id) => {
         const proceed = window.confirm('Are sure, want to cancell?');
         if (proceed) {
-            const url = `https://gentle-lake-31657.herokuapp.com/my-orders/${id}`
+            const url = `https://fitpal-bicycle-server.onrender.com/my-orders/${id}`
             axios.delete(url)
                 .then(res => {
                     if (res.data.deletedCount > 0) {

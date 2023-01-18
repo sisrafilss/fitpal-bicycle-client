@@ -11,7 +11,7 @@ const AllProducts = () => {
 
     // Load Highlighted products
     useEffect(() => {
-        axios.get('https://gentle-lake-31657.herokuapp.com/products')
+        axios.get('https://fitpal-bicycle-server.onrender.com/products')
             .then(res => {
                 setProducts(res.data);
             })
