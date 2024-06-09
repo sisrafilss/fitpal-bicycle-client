@@ -28,7 +28,7 @@ const AllProducts = () => {
         <div>
             <Header />
 
-            <div style={{ marginTop: '-60px' }}>
+            <div style={{ marginTop: "-60px" }}>
                 <SectionHead sectionHead={sectionHead} />
                 <div className="container">
                     <div style={{ marginBottom: '60px' }} className="row row-cols-1 row-cols-md-3 g-4">
